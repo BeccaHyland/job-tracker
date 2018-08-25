@@ -14,5 +14,12 @@ describe Category do
         expect(category).to be_invalid
       end
     end
+
+    context "valid attributes" do
+      it "is valid with a name" do
+        category = Category.new(title: "Database Ops")
+        expect(category).to be_valid
+      end
+    end
   end
 end
