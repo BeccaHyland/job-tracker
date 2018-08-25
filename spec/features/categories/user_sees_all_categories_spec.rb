@@ -21,7 +21,7 @@ describe "User sees all categories" do
       c1 = Category.create!(title: "Energy")
       c2 = Category.create!(title: "Medical")
 
-      visit '/categories'
+      visit categories_path
       expect(page).to have_link("Edit")
     end
 
@@ -29,7 +29,7 @@ describe "User sees all categories" do
       c1 = Category.create!(title: "Energy")
       c2 = Category.create!(title: "Medical")
 
-      visit '/categories'
+      visit categories_path
       expect(page).to have_link("Delete")
     end
   end
