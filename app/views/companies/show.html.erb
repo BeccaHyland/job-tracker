@@ -2,5 +2,7 @@ All Jobs for <strong><%= @company.name %></strong>
 
 <% @company.jobs.each do |job| %>
   <!-- <%= job.title %> -->
-  <%= link_to job.title, company_job_path(job), class: 'job-title' %>
+  <%= link_to job.title, company_job_path(id), class: 'job-title' %>
 <% end %>
+
+<!-- company_job GET    /companies/:company_id/jobs/:id(.:format) -->
