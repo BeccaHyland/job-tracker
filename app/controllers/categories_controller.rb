@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} added!"
       redirect_to category_path(@category)
     else
-      # flash[] - figure out what else to put here for the sorry message - see saved bookmark
+      flash[:error] = "Sorry, this category name already exists."
       render :new
     end
   end
