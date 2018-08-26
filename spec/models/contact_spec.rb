@@ -4,17 +4,17 @@ describe Contact do
   describe "validations" do
     context "invalid attributes" do
       it "is invalid without a name" do
-        contact = Contact.new(position: "Sales Manager", email: "yogibear@cartoon.com")
+        contact = Contact.create(position: "Sales Manager", email: "yogibear@cartoon.com")
         expect(contact).to be_invalid
       end
 
       it 'is invalid without a position' do
-        contact = Contact.new(name: "Susan", email: "yogibear@cartoon.com")
+        contact = Contact.create(name: "Susan", email: "yogibear@cartoon.com")
         expect(contact).to be_invalid
       end
 
       it 'is invalid without an email' do
-        contact = Contact.new(name: "Susan", position: "Sales Manager")
+        contact = Contact.create(name: "Susan", position: "Sales Manager")
         expect(contact).to be_invalid
       end
     end
