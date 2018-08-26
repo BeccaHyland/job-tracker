@@ -15,7 +15,7 @@ describe "User sees one company" do
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
 
-    visit company_path(company.id) #remove job, doesn't matter.
+    visit company_path(company.id)
 
     expect(page).to have_link(job.title)
   end
