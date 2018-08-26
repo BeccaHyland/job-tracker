@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+    @contact = Contact.new
   end
 
   def create
@@ -19,6 +20,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @contacts = Contact.all
     #redirect_to company_path(company)
     #redirect_to company_jobs_path(company)
   end
