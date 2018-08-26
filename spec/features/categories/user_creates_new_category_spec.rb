@@ -12,7 +12,7 @@ describe 'user creates a new category' do
         fill_in "category[title]", with: "New Test Category"
         click_on "Create Category"
 
-        #expect path
+        
         expect(page).to have_content("New Test Category")
       end
     end
