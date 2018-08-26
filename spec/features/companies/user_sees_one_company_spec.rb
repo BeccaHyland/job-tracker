@@ -29,4 +29,19 @@ describe "User sees one company" do
   #
   #   expect(page).to have_content("#{job.title}")
   # end
+  scenario 'user sees a contact form on company page' do
+    company = Company.create!(name: "ESPN")
+    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+
+    visit company_path(company)
+
+    expect(page).to have_content("Add New Contact")
+    expect(page).to have_content("Full Name:")
+    fill_in('Full Name:', :with => 'Dizzy')
+    expect(page).to have_content("Position:")
+    fill_in('Position:', :with => 'Sales Analyst')
+    expect(page).to have_content("Email:")
+    fill_in('Email:', :with => 'dizzydevil@warner.com')
+
+  end
 end
