@@ -44,4 +44,7 @@ describe "User sees one company" do
     fill_in('Email:', :with => 'dizzydevil@warner.com')
 
   end
+  scenario 'user sees a contact' do
+    
+  end
 end
