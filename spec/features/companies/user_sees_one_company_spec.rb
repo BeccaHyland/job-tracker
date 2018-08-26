@@ -25,7 +25,7 @@ describe "User sees one company" do
 
     visit company_job_path(company, job)
 
-    click_link("#{job.title}")
+    click_link(job.title)
 
     expect(page).to have_content("#{job.title}")
   end
