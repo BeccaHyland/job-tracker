@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @contact = Contact.new
+
   end
 
   def create
