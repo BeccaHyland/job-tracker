@@ -30,3 +30,5 @@ All Jobs for <strong><%= @company.name %></strong>
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= render partial: 'companies/contact', collection: @company.contacts %>
