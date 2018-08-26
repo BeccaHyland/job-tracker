@@ -18,8 +18,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    company = Company.find(params[:id])
-    redirect_to company_jobs_path(company) #possibly change this to mirror categories controller
+    @company = Company.find(params[:id])
   end
 
   def edit
