@@ -1,4 +1,8 @@
 <%= form_for [@company, @job] do |f| %>
+
+  <%= f.label :category %>
+  <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -10,12 +14,6 @@
 
   <%= f.label :city %>
   <%= f.text_field :city %>
-
-  <select id='category_dropdown' name='category_dropdown' type='text'>
-  <% @categories.each do |category| %>
-    <option value="<%= category.id %>"> <%= category.title %> </option>
-  <% end %>
-  </select>
 
   <%= f.submit %>
 <% end %>
