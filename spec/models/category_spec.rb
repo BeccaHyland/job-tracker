@@ -25,6 +25,6 @@ describe Category do
 
   describe 'relationships' do
     category = Category.new(title: "Database Ops")
-    it {should have_many(:songs)}
+    it {should have_many(:jobs)}
   end
 end
