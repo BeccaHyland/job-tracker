@@ -6,7 +6,6 @@ describe "User sees one category" do
     #category.jobs.create!(title: "Developer", level_of_interest: 100, city: "Boulder")
 
     visit category_path(category)
-    save_and_open_page
 
     expect(current_path).to eq("/categories/#{category.id}")
     expect(page).to have_content("Energy")
