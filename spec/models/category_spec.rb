@@ -22,4 +22,9 @@ describe Category do
       end
     end
   end
+
+  describe 'relationships' do
+    category = Category.new(title: "Database Ops")
+    it {should have_many(:songs)}
+  end
 end
