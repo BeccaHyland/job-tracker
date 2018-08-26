@@ -29,6 +29,7 @@ describe Contact do
   end
   describe "relationships" do
     it "belongs to a company" do
+      company = Company.new(name: "Turing")
       contact = Contact.new(name: "Susan", position: "Sales Manager", email: "yogibear@cartoon.com")
       expect(contact).to respond_to(:company)
     end
