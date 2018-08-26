@@ -2,3 +2,4 @@
 <% @company.jobs.each do |job| %>
   <%= link_to job.title, company_jobs_path(@company,job), class: 'job-title' %> <br/>
 <% end %>
+
