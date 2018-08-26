@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
 
   def show
     company = Company.find(params[:id])
-    redirect_to company_jobs_path(company)
+    redirect_to company_jobs_path(company) #possibly change this to mirror categories controller
   end
 
   def edit
@@ -41,7 +41,7 @@ class CompaniesController < ApplicationController
     company = Company.find(params[:id])
     company.destroy
 
-    flash[:success] = "#{company.name} was successfully deleted!"
+    flash[:success] = "#{company.name} was successfully deleted."
     redirect_to companies_path
   end
 
