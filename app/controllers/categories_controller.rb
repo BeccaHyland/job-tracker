@@ -14,13 +14,12 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category)
     else
       flash[:error] = "Sorry, this category name already exists."
-      render :new
+      redirect_to new_category_path
     end
   end
 
   def show
-    category = Category.find(params[:id])
-    redirect_to categories_path(category)
+    @category = Category.find(params[:id])
   end
 
   private
