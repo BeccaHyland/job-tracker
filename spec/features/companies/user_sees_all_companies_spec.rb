@@ -11,7 +11,7 @@ describe "User sees all companies" do
   end
   scenario "a user can connect to create new company link" do
     visit companies_path
-    save_and_open_page
+
     expect(page).to have_link("Create New Company")
   end
 
