@@ -9,5 +9,10 @@ describe "User sees all companies" do
 
     expect(page).to have_content("ESPN")
   end
+  scenario "a user can connect to create new company link" do
+    visit companies_path
+
+    expect(page).to have_link("Create New Company")
+  end
 
 end
