@@ -7,6 +7,7 @@ describe "User deletes an existing Category" do
 
     within(".category_#{category.id}") do
       click_link "Delete"
+    expect(current_path).to eq(categories_path)
     end
 
     expect(page).to have_content("Energy was successfully deleted.")
