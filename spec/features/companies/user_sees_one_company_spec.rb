@@ -14,7 +14,8 @@ describe "User sees one company" do
   end
   scenario "a user sees a link for a job" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    category = Category.create!(title: "Finance")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
 
     visit company_path(company.id)
 
@@ -22,7 +23,8 @@ describe "User sees one company" do
   end
   scenario "a user clicks on a link for a job to see the job show page" do
     company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+    category = Category.create!(title: "Finance")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
 
     visit company_path(company)
 
