@@ -13,7 +13,7 @@ describe "User sees all categories" do
     end
 
     it 'links to create new category' do
-      visit '/categories'
+      visit categories_path
       expect(page).to have_link("Create New Category")
     end
 

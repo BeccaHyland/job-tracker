@@ -8,7 +8,7 @@ describe "User creates a new job" do
 
     visit new_company_job_path(company)
 
-    select category1.title, from: :job_category_id
+    select category1.title, from: :category_id
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
     fill_in "job[level_of_interest]", with: 80
@@ -16,7 +16,7 @@ describe "User creates a new job" do
 
     click_button "Create Job"
 
-    expect(current_path).to eq(company_job_path(company, Job.last.id))
+    expect(current_path).to eq(company_job_path(company, Job.last))
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
     expect(page).to have_content("80")

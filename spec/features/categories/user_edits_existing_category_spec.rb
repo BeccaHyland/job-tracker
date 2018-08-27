@@ -8,7 +8,7 @@ describe "User edits an existing category" do
     fill_in "category[title]", with: "Fin. Private Sector"
     click_button "Update"
 
-    expect(current_path).to eq("/categories/#{Category.last.id}")
+    expect(current_path).to eq(category_path(Category.last.id))
     expect(page).to have_content("Fin. Private Sector")
     expect(page).to_not have_content("Financial")
   end
