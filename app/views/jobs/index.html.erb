@@ -1,7 +1,24 @@
-<%= if @company %>
-  <h1>All Jobs for <strong><%= @company.name %></strong></h1>
-<%= end %>
+<% if @company %>
+  <h1>Jobs at <strong><%= @company.name %></strong></h1>
+<% else %>
+  <h1>All Jobs</h1>
+<% end %></strong></h1>
+
+<a href='/jobs/new'>Add a New Job</a>
+
+<div class="headers">
+  <h2>Title</h2>
+  <h2>Company</h2>
+  <h2>City</h2>
+  <h2>Interest</h2>
+</div>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <ul>
+    <%= job.title %> at <%= job.company.name %>
+    <%= job.title %> at <%= job.company.name %>
+    <%= job.title %> at <%= job.company.name %>
+    <%= job.title %> at <%= job.company.name %>
+
+  </ul>
 <% end %>
