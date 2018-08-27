@@ -7,7 +7,7 @@ describe "User sees one category" do
 
     visit category_path(category)
 
-    expect(current_path).to eq("/categories/#{category.id}")
+    expect(current_path).to eq(category_path(category))
     expect(page).to have_content("Energy")
   end
 end
