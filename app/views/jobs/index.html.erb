@@ -1,4 +1,6 @@
-All Jobs for <strong><%= @company.name %></strong>
+<%= if @company %>
+  <h1>All Jobs for <strong><%= @company.name %></strong></h1>
+<%= end %>
 
 <% @jobs.each do |job| %>
   <ul><%= job.title %> at <%= job.company.name %></ul>
