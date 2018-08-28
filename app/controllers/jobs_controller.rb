@@ -5,14 +5,14 @@ class JobsController < ApplicationController
   end
 
   def new
-    @categories = Category.all
+    @categories = Category.all #not receiving this one
     @company = Company.find(params[:company_id])
     @job = Job.new
   end
 
   def create
+    @categories = Category.all
     @company = Company.find(params[:company_id])
-    # binding.pry
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"

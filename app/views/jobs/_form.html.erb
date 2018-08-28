@@ -1,7 +1,11 @@
 <%= form_for [@company, @job] do |f| %>
 
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
+  <%= f.label :category_id %>
+  <%= f.select :category_id do %>
+    <% @categories.each do |category| %>
+      <%= content_tag(:option, category.title, value: category.id) %>
+    <% end %>
+  <% end %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
