@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User sees one company" do
+describe "User sees company show page" do
   scenario "a user sees a company" do
     company = Company.create!(name: "ESPN")
     company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
@@ -9,7 +9,8 @@ describe "User sees one company" do
 
     expect(current_path).to eq(company_path(company))
     expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
+    expect(page).to have_content("Add New Contact")
+    expect(page).to have_content("Existing Contacts")
   end
   scenario "a user sees a link for a job" do
     company = Company.create!(name: "ESPN")
