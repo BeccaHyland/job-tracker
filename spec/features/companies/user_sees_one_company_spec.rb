@@ -12,22 +12,18 @@ describe "User sees company show page" do
     expect(page).to have_content("Add New Contact")
     expect(page).to have_content("Existing Contacts")
   end
-  scenario "a user sees a link for a job" do
-    company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+  scenario "a user sees a contact" do
 
-    visit company_path(company)
-
-    expect(page).to have_link(job.title)
   end
-  scenario "a user clicks on a link for a job to see the job show page" do
-    company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
 
-    visit company_path(company)
+  scenario "a user sees a contact form" do
 
-    click_link(job.title)
-
-    expect(page).to have_content("#{job.title}")
   end
+  scenario "a user fills out a contact" do
+
+  end
+  scenario "a user sees contact added to contacts" do
+
+  end
+  
 end
