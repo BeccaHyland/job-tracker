@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  def index
-    render :index
+  def show
+    render :show
   end
 end
