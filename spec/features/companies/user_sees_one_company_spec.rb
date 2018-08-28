@@ -60,7 +60,7 @@ describe "User sees company show page" do
     fill_in :contact_name, with: "George"
     fill_in :contact_position, with: "President"
     fill_in :contact_email, with: "potus@gmail.com"
-
+    save_and_open_page
     click_on "Save"
 
     expect(current_path).to eq(company_path(company))
