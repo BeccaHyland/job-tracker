@@ -15,8 +15,11 @@ describe "User sees company show page" do
   scenario "a user sees a contact" do
     company = Company.create(name: "ESPN")
     company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    company.contacts.create()
 
     visit company_path(company)
+
+    expect(page).to have_content()
   end
 
   scenario "a user sees a contact form" do
