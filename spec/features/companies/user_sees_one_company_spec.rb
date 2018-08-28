@@ -25,5 +25,5 @@ describe "User sees company show page" do
   scenario "a user sees contact added to contacts" do
 
   end
-  
+
 end
