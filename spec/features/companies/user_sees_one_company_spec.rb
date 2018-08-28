@@ -31,7 +31,7 @@ describe "User sees company show page" do
 
     visit company_path(company)
 
-    expect(page).to have_content("Full Name:")
+    expect(page).to have_content("Full Name: ")
     expect(page).to have_content("Position:")
     expect(page).to have_content("Email:")
   end
