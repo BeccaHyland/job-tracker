@@ -60,13 +60,25 @@ describe "User sees company show page" do
     fill_in :contact_name, with: "George"
     fill_in :contact_position, with: "President"
     fill_in :contact_email, with: "potus@gmail.com"
-    save_and_open_page
+    
     click_on "Save"
 
     expect(current_path).to eq(company_path(company))
     expect(page).to have_content("George")
     expect(page).to have_content("President")
     expect(page).to have_content("potus@gmail.com")
+  end
+  scenario 'user edits contact' do
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
+
+    visit company_path(company)
+
+    click_on 'Edit'
+
+    expect(current_path).to eq(edit_company_contact_path(@company, contact))
+
   end
 
 end
