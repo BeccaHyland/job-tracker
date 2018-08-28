@@ -11,4 +11,12 @@ describe "User sees a specific job" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
   end
+  scenario 'user sees a form for a job comment' do
+    company = Company.create!(name: "ESPN")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
+
+    visit company_job_path(company, job)
+
+    
+  end
 end
