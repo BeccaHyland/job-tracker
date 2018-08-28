@@ -15,7 +15,7 @@ describe "User sees company show page" do
   scenario "a user sees a contact" do
     company = Company.create(name: "ESPN")
     company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
-    contact = company.contacts.new(name: "Sally", position: "Hero", email: "hera@gmail.com")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
     visit company_path(company)
 
