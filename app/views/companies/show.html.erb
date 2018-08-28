@@ -9,7 +9,7 @@
     <li><%= contact.name %> </li>
     <li><%= contact.position %> </li>
     <li><%= contact.email %> </li>
-    <%= link_to "Edit", edit_contact_path(contact) %>
-    <%= link_to "Delete", contact_path(contact), method: "delete" %>
+    <%= link_to "Edit", edit_company_contact_path(@company, contact) %>
+    <%= link_to "Delete", company_contact_path(@company, contact), method: "delete" %>
   </ul><br/>
 <% end %>
