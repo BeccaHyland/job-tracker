@@ -60,7 +60,7 @@ describe "User sees company show page" do
     fill_in :contact_name, with: "George"
     fill_in :contact_position, with: "President"
     fill_in :contact_email, with: "potus@gmail.com"
-    
+
     click_on "Save"
 
     expect(current_path).to eq(company_path(company))
@@ -68,7 +68,7 @@ describe "User sees company show page" do
     expect(page).to have_content("President")
     expect(page).to have_content("potus@gmail.com")
   end
-  scenario 'user edits contact' do
+  scenario 'user moves to edit contact page' do
     company = Company.create(name: "ESPN")
     company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
     contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
@@ -79,6 +79,17 @@ describe "User sees company show page" do
 
     expect(current_path).to eq(edit_company_contact_path(@company, contact))
 
+  end
+  scenario 'user fills in edit contact page and returns to company contact' do
+    # expect(current_path).to eq(edit_company_contact_path(@company, contact))
+    #
+    # fill_in :contact_name, with: "George"
+    # fill_in :contact_position, with: "President"
+    # fill_in :contact_email, with: "potus@gmail.com"
+    #
+    # click_on "Save"
+    #
+    # expect(current_path).to eq(company_path(company))
   end
 
 end
