@@ -1,7 +1,8 @@
 <h1><%= @company.name %></h1>
-
+<br />
 <h2>Add a New Contact</h2>
-
+<%= render partial: 'contacts/form' %>
+<br />
 <h4>Existing Contacts</h4>
 <% @company.contacts.each do |contact| %>
   <ul>
