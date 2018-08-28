@@ -29,6 +29,6 @@ describe "On company job page" do
 
     click_link(job.title)
 
-    expect(current_path).to eq(edit_company_job_path(company, job))
+    expect(current_path).to eq(company_job_path(company, job))
   end
 end
