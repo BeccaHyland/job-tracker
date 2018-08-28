@@ -18,6 +18,5 @@ describe "User sees a specific job" do
     visit job_path(job)
 
     expect(page).to have_content("Notes")
-    expect(page).to have_content("Save")
   end
 end

@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
-  validates :body
+  validate :body
   belongs_to :job
 end
