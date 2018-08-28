@@ -25,7 +25,15 @@ describe "User sees company show page" do
   end
 
   scenario "a user sees a contact form" do
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
+    visit company_path(company)
+
+    expect(page).to have_content("Full Name:")
+    expect(page).to have_content("Position:")
+    expect(page).to have_content("Email:")
   end
   scenario "a user fills out a contact" do
 
