@@ -15,10 +15,9 @@
 
 <% @jobs.each do |job| %>
   <ul>
-    <%= job.title %> at <%= job.company.name %>
-    <%= job.title %> at <%= job.company.name %>
-    <%= job.title %> at <%= job.company.name %>
-    <%= job.title %> at <%= job.company.name %>
-
+    <li><%= link_to job.title, company_job_path(@company, job) %> </li>
+    <li><%= job.company.name %> </li>
+    <li><%= job.city %></li>
+    <li>Interest Level</li>
   </ul>
 <% end %>

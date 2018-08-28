@@ -9,7 +9,7 @@ describe "User sees company show page" do
 
     expect(current_path).to eq(company_path(company))
     expect(page).to have_content("ESPN")
-    expect(page).to have_content("Add New Contact")
+    expect(page).to have_content("Add a New Contact")
     expect(page).to have_content("Existing Contacts")
   end
   scenario "a user sees a contact" do
