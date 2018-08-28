@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :categories
   resources :companies do
-    resources :jobs
+    resources :jobs do
+      :comments
+    end
     resources :contacts
   end
   resources :jobs, only: [:index, :show] do
