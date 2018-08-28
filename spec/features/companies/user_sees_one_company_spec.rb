@@ -31,15 +31,42 @@ describe "User sees company show page" do
 
     visit company_path(company)
 
-    expect(page).to have_content("Full Name: ")
+    expect(page).to have_content("Name:")
     expect(page).to have_content("Position:")
     expect(page).to have_content("Email:")
   end
   scenario "a user fills out a contact" do
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
+    visit company_path(company)
+
+    fill_in :contact_name, with: "George"
+    fill_in :contact_position, with: "President"
+    fill_in :contact_email, with: "potus@gmail.com"
+
+    click_on "Save"
+
+    expect(current_path).to eq(company_path(company))
   end
   scenario "a user sees contact added to contacts" do
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
+    visit company_path(company)
+
+    fill_in :contact_name, with: "George"
+    fill_in :contact_position, with: "President"
+    fill_in :contact_email, with: "potus@gmail.com"
+
+    click_on "Save"
+
+    expect(current_path).to eq(company_path(company))
+    expect(page).to have_content("George")
+    expect(page).to have_content("President")
+    expect(page).to have_content("potus@gmail.com")
   end
 
 end
