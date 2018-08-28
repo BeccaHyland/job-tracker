@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "User sees company show page" do
   scenario "a user sees a company" do
-    company = Company.create!(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver")
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
 
     visit company_path(company)
 
@@ -13,7 +13,10 @@ describe "User sees company show page" do
     expect(page).to have_content("Existing Contacts")
   end
   scenario "a user sees a contact" do
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
 
+    visit company_path(company)
   end
 
   scenario "a user sees a contact form" do
