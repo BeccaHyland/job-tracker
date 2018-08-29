@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   end
 
   def new
-    @categories = Category.all #not receiving this one
+    @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = Job.new
   end
