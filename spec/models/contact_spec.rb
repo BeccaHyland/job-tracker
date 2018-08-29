@@ -21,7 +21,7 @@ describe Contact do
 
     context 'valid attributes' do
       it 'is valid with a name, position, email, and company' do
-        company = Company.create!(name: "Turing")
+        company = Company.create(name: "Turing")
         #contact = Contact.new(name: "Susan", position: "Sales Manager", email: "yogibear@cartoon.com")
         contact = company.contacts.create(name: "Susan", position: "Sales Manager", email: "yogibear@cartoon.com")
         expect(contact).to be_valid
