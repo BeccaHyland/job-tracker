@@ -2,14 +2,10 @@ require 'rails_helper'
 
 describe "User sees company show page" do
   scenario "a user sees a company" do
-<<<<<<< HEAD
+
     company = Company.create!(name: "ESPN")
     category = Category.create!(title: "Finance")
     company.jobs.create!(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
-=======
-    company = Company.create(name: "ESPN")
-    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
->>>>>>> origin
 
     visit company_path(company)
 
@@ -18,17 +14,12 @@ describe "User sees company show page" do
     expect(page).to have_content("Add a New Contact")
     expect(page).to have_content("Existing Contacts")
   end
-<<<<<<< HEAD
-  scenario "a user sees a link for a job" do
-    company = Company.create!(name: "ESPN")
-    category = Category.create!(title: "Finance")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
-=======
+
   scenario "a user sees a contact" do
     company = Company.create(name: "ESPN")
-    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    category = Category.create!(title: "Finance")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
     contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
->>>>>>> origin
 
     visit company_path(company)
 
@@ -36,16 +27,11 @@ describe "User sees company show page" do
     expect(page).to have_content("Hero")
     expect(page).to have_content("hera@gmail.com")
   end
-<<<<<<< HEAD
-  scenario "a user clicks on a link for a job to see the job show page" do
-    company = Company.create!(name: "ESPN")
-    category = Category.create!(title: "Finance")
-    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
-=======
 
   scenario "a user sees a contact form" do
     company = Company.create(name: "ESPN")
-    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    category = Category.create!(title: "Finance")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
     contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
     visit company_path(company)
@@ -56,7 +42,8 @@ describe "User sees company show page" do
   end
   scenario "a user fills out a contact" do
     company = Company.create(name: "ESPN")
-    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    category = Category.create!(title: "Finance")
+    job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
     contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
 
     visit company_path(company)
@@ -71,9 +58,9 @@ describe "User sees company show page" do
   end
   scenario "a user sees contact added to contacts" do
     company = Company.create(name: "ESPN")
-    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    category = Category.create!(title: "Finance")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver", category: category)
     contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
->>>>>>> origin
 
     visit company_path(company)
 
