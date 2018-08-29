@@ -8,8 +8,8 @@ class Company < ApplicationRecord
     #order by the average ascending
     #take the last company
 
-    .select('companies.*, avg(jobs.level_of_interest) AS avg_interest')
-    .joins(:jobs)
+    # .select('companies.*, avg(jobs.level_of_interest) AS avg_interest')
+    # .joins(:jobs)
   #.group ?
   #.order by average score ASC
   #get the last one

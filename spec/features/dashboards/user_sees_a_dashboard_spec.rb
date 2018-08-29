@@ -3,10 +3,9 @@ require 'rails_helper'
 describe "User sees the dashboard" do
   scenario "a user sees jobs by interest" do
     visit dashboard_index_path
-    save_and_open_page
 
   end
-  scenario "a user sees top companies by interest" do
+  xit "shows top companies by interest" do
     category = Category.create(title: "Technology")
     company1 = Company.create(name: "BestCompany")
     company2 = Company.create(name: "GreatCompany")
@@ -23,7 +22,7 @@ describe "User sees the dashboard" do
 
     visit dashboard_index_path
 
-    expect(page).to have content #top company and its starts, repeat below
+    expect(page).to have_content #top company and its starts, repeat below
     expect(page).to_not have_content #the 4th company
   end
   scenario "a user sees jobs listed by location" do
