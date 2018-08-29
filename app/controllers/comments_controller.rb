@@ -12,10 +12,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
     comment = Comment.find(params[:id])
     job = comment.job
-    # Job.find(params[:id])
     comment.destroy
 
     flash[:success] = "Comment #{comment.id} was successfully deleted."
