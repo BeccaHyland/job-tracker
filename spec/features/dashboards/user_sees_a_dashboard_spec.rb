@@ -5,7 +5,7 @@ describe "User sees the dashboard" do
     visit dashboard_index_path
 
   end
-  xit "shows top companies by interest" do
+  xit "shows top 3 companies by interest" do
     category = Category.create(title: "Technology")
     company1 = Company.create(name: "BestCompany")
     company2 = Company.create(name: "GreatCompany")
