@@ -28,13 +28,23 @@ class JobsController < ApplicationController
 
   def create
     @categories = Category.all
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.new(job_params)
-    if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @job = @company.jobs.new(job_params)
+        if @job.save
+          flash[:success] = "You created #{@job.title} at #{@job.company}"
+          redirect_to company_job_path(@company, @job)
+        else
+          render :new
+        end
     else
-      render :new
+      @job = Job.new(job_params)
+      if @job.save
+        flash[:success] = "You created #{@job.title} at #{@job.company.name}"
+        redirect_to job_path(@job)
+      else
+        render :new
+      end
     end
   end
 
@@ -73,5 +83,5 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company_id)
   end
-  
+
 end
