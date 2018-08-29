@@ -14,6 +14,7 @@ describe "User sees a specific job" do
   end
   scenario 'user sees a form for a job comment' do
     company = Company.create(name: "ESPN")
+    category = Category.create(title: "Finance")
     job = company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category: category)
 
     visit job_path(job)
