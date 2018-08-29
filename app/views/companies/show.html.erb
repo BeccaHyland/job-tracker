@@ -1,5 +1,7 @@
 <h1><%= @company.name %></h1>
 <br />
+<%= link_to "See All Jobs", company_jobs_path(@company) %>
+<br />
 <h2>Add a New Contact</h2>
 <%= render partial: 'contacts/form' %>
 <br />

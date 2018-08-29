@@ -48,6 +48,7 @@ class JobsController < ApplicationController
     end
   end
 
+  
   def edit
     if params[:company_id]
       @company = Company.find(params[:company_id])
