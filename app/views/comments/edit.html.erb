@@ -1,0 +1,8 @@
+<h2> Edit here!</h2>
+
+<%= form_for [@job, @comment] do |f| %>
+  <%= f.label :Note %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>

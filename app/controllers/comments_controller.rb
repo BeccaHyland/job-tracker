@@ -12,11 +12,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    job = Job.find(params[:id])
+
     comment = Comment.find(params[:id])
+    job = comment.job
+    # Job.find(params[:id])
     comment.destroy
 
-    flash[:success] = "#{contact.name} was successfully deleted."
+    flash[:success] = "Comment #{comment.id} was successfully deleted."
     redirect_to job_path(job)
   end
 
@@ -25,7 +27,7 @@ class CommentsController < ApplicationController
     job = @comment.job
     @comment.update(comment_params)
     if @comment.save
-      flash[:success] = "#{@comment.name} updated!"
+      flash[:success] = "Comment #{@comment.id} updated!"
       redirect_to job_path(job)
     else
       render :edit
