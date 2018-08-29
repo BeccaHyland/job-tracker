@@ -1,7 +1,11 @@
 class JobsController < ApplicationController
   def index
+    if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -27,8 +31,12 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:company_id])
-    @job = Job.find(params[:id])
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @job = Job.find(params[:id])
+    else
+      @job = Job.find(params[:id])
+    end
   end
 
   def update

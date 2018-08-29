@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
     resources :contacts
   end
-  resources :jobs, only: [:index, :show] do
+  resources :jobs, only: [:index, :show, :edit, :destroy] do
     resources :comments
   end
   resources :dashboards, only: [:index]
