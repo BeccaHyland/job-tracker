@@ -1,0 +1,8 @@
+<% @job.comments.each do |comment| %>
+  <ul>
+    <li><%= comment.created_at %> </li>
+    <li><%= comment.body %> </li>
+    <%= link_to "Edit", edit_job_comment_path(@job, comment) %>
+    <%= link_to "Delete", job_comment_path(@job, comment), method: "delete" %>
+  </ul><br/>
+<% end %>

@@ -1,13 +1,35 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Contact.new(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.job_id = params[:job_id]
     @comment.save
     redirect_to job_path(@comment.job)
   end
 
   def edit
+    @comment = Comment.find(params[:id])
+    @job = @comment.job
+  end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    job = comment.job
+    comment.destroy
+
+    flash[:success] = "Comment #{comment.id} was successfully deleted."
+    redirect_to job_path(job)
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    job = @comment.job
+    @comment.update(comment_params)
+    if @comment.save
+      flash[:success] = "Comment #{@comment.id} updated!"
+      redirect_to job_path(job)
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,6 +1,6 @@
 <h2> Edit <%= @contact.name %> here!</h2>
 
-<%= form_for @contact do |f| %>
+<%= form_for [@company, @contact] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
