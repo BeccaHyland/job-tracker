@@ -33,8 +33,8 @@
   <li class=job_<%= job.id %>>
     <%= link_to job.title, job_path(job) %>
     <%= link_to job.company.name, company_path(job.company) %>
-    <%= link_to "#{job.city}", job_path(location: job.city) %>
-    <%= link_to "#{job.level_of_interest}", job_path(level_of_interest: job.level_of_interest) %>
+    <%= link_to "#{job.city}", jobs_path %>
+    <%= link_to "#{job.level_of_interest}", jobs_path %>
     <%= link_to "Edit", edit_job_path(job) %>
     <%= link_to "Delete", job_path(job), method: "delete" %>
   </li>

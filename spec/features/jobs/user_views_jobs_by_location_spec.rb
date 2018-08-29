@@ -12,8 +12,8 @@ describe 'as a user' do
 
       visit company_jobs_path(company)
 
-      # click_link "New York"
-      #
+      click_link "New York"
+      binding.pry
       # expect(current_path).to eq(job_location_path(location))
       # expect(page).to_not have_content("Developer")
       # expect(page).to_not have_content("SQL")

@@ -1,23 +1,19 @@
 class JobsController < ApplicationController
   def index
-    if params[:company_id]
+    if params[:location]
+      @jobs = Job.where(city: params[:location])
+    elsif params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
-    elsif params[:location]
-      @jobs = Job.where(city: params[:location])
     else
       @jobs = Job.all
     end
   end
 
   def show
-    if params[:location]
-      redirect_to :index
-    else
       @job = Job.find(params[:id])
       @comment = Comment.new
       @comment.job_id = @job.id
-    end
   end
 
   def new
