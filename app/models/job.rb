@@ -3,4 +3,16 @@ class Job < ApplicationRecord
   belongs_to :company
   belongs_to :category
   has_many :comments
+
+  def self.sort_by_location
+    Job.order(city: :asc)
+  end
+
+  def self.sort_by_interest
+    Job.order(level_of_interest: :desc)
+  end
+
+  def self.number_stars
+
+  end
 end

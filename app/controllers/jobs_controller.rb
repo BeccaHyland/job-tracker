@@ -1,13 +1,29 @@
 class JobsController < ApplicationController
   def index
+    if params[:sort] == "location"
+      @jobs = Job.sort_by_location
+    elsif params[:sort] == "interest"
+      @jobs = Job.sort_by_interest
+    elsif params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    else
+      @jobs = Job.all
+    end
+  end
+
+  def show
+      @job = Job.find(params[:id])
+      @comment = Comment.new
+      @comment.job_id = @job.id
   end
 
   def new
-    @categories = Category.all #not receiving this one
-    @company = Company.find(params[:company_id])
-    @job = Job.new
+      @job = Job.new
+    if params[:company_id]
+      @categories = Category.all
+      @company = Company.find(params[:company_id])
+    end
   end
 
   def create
@@ -22,15 +38,13 @@ class JobsController < ApplicationController
     end
   end
 
-  def show
-    @job = Job.find(params[:id])
-    @comment = Comment.new
-    @comment.job_id = @job.id
-  end
-
   def edit
-    @company = Company.find(params[:company_id])
-    @job = Job.find(params[:id])
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @job = Job.find(params[:id])
+    else
+      @job = Job.find(params[:id])
+    end
   end
 
   def update
@@ -59,4 +73,5 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company_id)
   end
+  
 end
