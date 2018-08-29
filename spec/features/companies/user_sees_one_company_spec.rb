@@ -76,27 +76,27 @@ describe "User sees company show page" do
     expect(page).to have_content("potus@gmail.com")
   end
   scenario 'user moves to edit contact page' do
-    # company = Company.create(name: "ESPN")
-    # company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
-    # contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
-    #
-    # visit company_path(company)
-    #
-    # click_on 'Edit'
-    #
-    # expect(current_path).to eq(edit_company_contact_path(@company, contact))
+    company = Company.create(name: "ESPN")
+    company.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    contact = company.contacts.create(name: "Sally", position: "Hero", email: "hera@gmail.com")
+
+    visit company_path(company)
+
+    click_on 'Edit'
+
+    expect(current_path).to eq(edit_company_contact_path(@company, contact))
 
   end
   scenario 'user fills in edit contact page and returns to company contact' do
-    # expect(current_path).to eq(edit_company_contact_path(@company, contact))
-    #
-    # fill_in :contact_name, with: "George"
-    # fill_in :contact_position, with: "President"
-    # fill_in :contact_email, with: "potus@gmail.com"
-    #
-    # click_on "Save"
-    #
-    # expect(current_path).to eq(company_path(company))
+    expect(current_path).to eq(edit_company_contact_path(@company, contact))
+
+    fill_in :contact_name, with: "George"
+    fill_in :contact_position, with: "President"
+    fill_in :contact_email, with: "potus@gmail.com"
+
+    click_on "Save"
+
+    expect(current_path).to eq(company_path(company))
   end
 
 end
