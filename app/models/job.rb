@@ -11,4 +11,8 @@ class Job < ApplicationRecord
   def self.sort_by_interest
     Job.order(level_of_interest: :desc)
   end
+
+  def self.number_stars
+    Job.group
+  end
 end
