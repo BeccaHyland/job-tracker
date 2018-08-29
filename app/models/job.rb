@@ -13,6 +13,6 @@ class Job < ApplicationRecord
   end
 
   def self.number_stars
-    Job.group
+
   end
 end
