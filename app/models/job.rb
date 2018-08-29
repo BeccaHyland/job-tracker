@@ -9,6 +9,6 @@ class Job < ApplicationRecord
   end
 
   def self.sort_by_interest
-    Job.order(level_of_interest: :asc)
+    Job.order(level_of_interest: :desc)
   end
 end
