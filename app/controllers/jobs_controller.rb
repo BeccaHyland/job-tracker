@@ -73,12 +73,5 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id, :company_id)
   end
-
-  def sort_params
-    if params[:sort] == "location"
-      @jobs = Job.sort_by_location()
-    elsif params[:sort] == "interest"
-      @jobs = Job.sort_by_interest()
-    end
-  end
+  
 end
