@@ -11,9 +11,13 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
-    @comment = Comment.new
-    @comment.job_id = @job.id
+    if params[:location]
+      redirect_to :index
+    else
+      @job = Job.find(params[:id])
+      @comment = Comment.new
+      @comment.job_id = @job.id
+    end
   end
 
   def new

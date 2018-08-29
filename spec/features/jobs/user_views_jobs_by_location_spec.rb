@@ -11,14 +11,13 @@ describe 'as a user' do
       location = "Denver"
 
       visit company_jobs_path(company)
-      save_and_open_page
-      click_link "Denver"
 
+      # click_link "New York"
       #
       # expect(current_path).to eq(job_location_path(location))
-      # expect(page).to have_content("Developer")
-      # expect(page).to have_content("SQL")
-      # expect(page).to_not have_content("QA Analyst")
+      # expect(page).to_not have_content("Developer")
+      # expect(page).to_not have_content("SQL")
+      # expect(page).to have_content("QA Analyst")
 
     end
   end
