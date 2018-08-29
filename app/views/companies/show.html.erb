@@ -1,5 +1,15 @@
-<h2>All Jobs for <strong><%= @company.name %></strong></h2>
-<% @company.jobs.each do |job| %>
-  <%= link_to job.title, company_jobs_path(@company,job), class: 'job-title' %> <br/>
+<h1><%= @company.name %></h1>
+<br />
+<h2>Add a New Contact</h2>
+<%= render partial: 'contacts/form' %>
+<br />
+<h4>Existing Contacts</h4>
+<% @company.contacts.each do |contact| %>
+  <ul>
+    <li><%= contact.name %> </li>
+    <li><%= contact.position %> </li>
+    <li><%= contact.email %> </li>
+    <%= link_to "Edit", edit_company_contact_path(@company, contact) %>
+    <%= link_to "Delete", company_contact_path(@company, contact), method: "delete" %>
+  </ul><br/>
 <% end %>
-
