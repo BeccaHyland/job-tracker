@@ -5,7 +5,7 @@
 <br />
 <h4>Existing Contacts</h4>
 <% @company.contacts.each do |contact| %>
-  <ul>
+  <ul class=contact_<%= contact.id %>>
     <li><%= contact.name %> </li>
     <li><%= contact.position %> </li>
     <li><%= contact.email %> </li>
