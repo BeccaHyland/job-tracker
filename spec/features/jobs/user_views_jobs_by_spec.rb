@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'as a user' do
-  describe 'from a jobs index page a user clicks on a location' do
+  describe 'from /jobs?sort=location' do
     it 'shows a page with jobs by location' do
       category = Category.create(title: "Finance")
       company = Company.create(name: "Sears")
@@ -11,13 +11,8 @@ describe 'as a user' do
       location = "Denver"
 
       visit '/jobs?sort=location'
-      # visit company_jobs_path(company)
 
-      # click_link "New York"
-      # expect(current_path).to eq(jobs_path)
-      # expect(page).to_not have_content("Developer")
-      # expect(page).to_not have_content("SQL")
-      # expect(page).to have_content("QA Analyst")
+      expect(page).to have_content("Developer Sears Denver 70 Edit Delete SQL Sears Denver 70 Edit Delete QA Analyst Sears New York City 70 Edit Delete")
 
     end
   end
