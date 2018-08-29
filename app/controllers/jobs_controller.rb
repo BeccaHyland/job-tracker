@@ -48,7 +48,7 @@ class JobsController < ApplicationController
     end
   end
 
-  
+
   def edit
     if params[:company_id]
       @company = Company.find(params[:company_id])
@@ -71,12 +71,19 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    company = Company.find(params[:company_id])
-    job = Job.find(params[:id])
-    job.destroy
+    if params[:company_id]
+      company = Company.find(params[:company_id])
+      job = Job.find(params[:id])
+      job.destroy
 
-    flash[:success] = "#{job.title} was successfully deleted."
-    redirect_to company_jobs_path(company)
+      flash[:success] = "#{job.title} was successfully deleted."
+      redirect_to company_jobs_path(company)
+    else
+      job = Job.find(params[:id])
+      job.destroy
+      flash[:success] = "#{job.title} was successfully deleted."
+      redirect_to jobs_path(job)
+    end
   end
 
   private
