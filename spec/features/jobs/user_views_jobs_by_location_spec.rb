@@ -10,11 +10,11 @@ describe 'as a user' do
       job3 = company.jobs.create(title: "SQL", level_of_interest: 70, city: "Denver", category: category)
       location = "Denver"
 
-      visit company_jobs_path(company)
+      visit '/jobs?sort=location'
+      # visit company_jobs_path(company)
 
-      click_link "New York"
-      binding.pry
-      # expect(current_path).to eq(job_location_path(location))
+      # click_link "New York"
+      # expect(current_path).to eq(jobs_path)
       # expect(page).to_not have_content("Developer")
       # expect(page).to_not have_content("SQL")
       # expect(page).to have_content("QA Analyst")
