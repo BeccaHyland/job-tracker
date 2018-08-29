@@ -1,1 +1,12 @@
 <h2> <%= @category.title %> Jobs </h2>
+
+<ul>
+<% @jobs.each do |job| %>
+  <li class=job_<%= job.id %>>
+    <%= link_to job.title, company_job_path(Company.find(job.company_id), job) %>
+    <%= link_to job.company.name, company_path(Company.find(job.company_id)) %>
+    <%= job.city %>
+    <%= link_to "Edit", edit_company_job_path(Company.find(job.company_id), job) %>
+    <%= link_to "Delete", company_job_path(Company.find(job.company_id), job), method: "delete" %>
+  </li>
+<% end %>
